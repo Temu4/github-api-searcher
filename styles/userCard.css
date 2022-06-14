@@ -1,0 +1,32 @@
+.list__item {
+  width: 100%;
+}
+.card {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  transition: background 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.card:hover,
+.card:focus {
+  background-color: #ccccccb3;
+}
+
+.card__img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.card__name {
+  width: calc(100% - 100px - 10px);
+  text-align: center;
+  color: black;
+}
