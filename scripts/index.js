@@ -6,6 +6,27 @@
  */
 import api from './api/index.js';
 import addCardToList from './components/UsersList.js';
+import UserInfo from './components/UserInfo.js';
+import ReposList from './components/ReposList.js';
+
+const popup = document.querySelector('.popup');
+
+const hidePopup = () => {
+  popup.classList.add('hidden');
+  document.body.classList.remove('popup-shown');
+};
+
+const showPopup = () => {
+  popup.classList.remove('hidden');
+  document.body.classList.add('popup-shown');
+};
+
+popup.addEventListener('click', (e) => {
+  if (e.target.classList.contains('popup')) {
+    hidePopup();
+    return;
+  }
+});
 
 const {searchUsers, fetchData} = api;
 
@@ -34,7 +55,23 @@ usersList.addEventListener('click', async (e) => {
   }
 
   const userLink = e.target.href || e.target.parentNode.href;
-  const userData = await fetchData(userLink);
+  const {repos_url, ...userData} = await fetchData(userLink);
 
-  console.log(userData);
+  UserInfo(userData);
+
+  const reposData = await fetchData(repos_url);
+  ReposList(reposData);
+
+  const popupInput = document.querySelector('#repoName');
+  popupInput.addEventListener('input', (e) => {
+    const value = e.target.value;
+    console.log(value);
+    const filteredReposData = reposData.filter((repo) =>
+      repo.name.toLowerCase().includes(value.toLowerCase())
+    );
+
+    ReposList(filteredReposData);
+  });
+
+  showPopup();
 });

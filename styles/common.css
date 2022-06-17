@@ -1,5 +1,9 @@
-body{
+body {
   background: url(https://www.toptal.com/designers/subtlepatterns/uploads/swirl_pattern.png) repeat;
+}
+
+body.popup-shown {
+  overflow: hidden;
 }
 
 .content {
@@ -39,8 +43,9 @@ body{
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
-  background: url('https://img.icons8.com/material-outlined/48/search-database.png') 10% 10% no-repeat;
-  background-position: 5px 5px; 
+  background: url('https://img.icons8.com/material-outlined/48/search-database.png') 10% 10%
+    no-repeat;
+  background-position: 5px 5px;
   background-size: 30px;
   padding: 12px 20px 12px 40px;
 }
