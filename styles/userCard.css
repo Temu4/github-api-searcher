@@ -8,10 +8,10 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 3px;
   transition: background 0.3s ease-in-out;
   text-decoration: none;
+  border: 2px solid #ccc;
+  border-radius: 4px;
 }
 
 .card:hover,
@@ -20,6 +20,7 @@
 }
 
 .card__img {
+  margin: 20px;
   width: 70px;
   height: 70px;
   border-radius: 50%;

@@ -6,6 +6,7 @@
  */
 import api from './api/index.js';
 import addCardToList from './utils/addCardToList.js';
+import viewPersonalCard from './utils/viewPersonalCard.js';
 
 const {searchUsers} = api;
 
@@ -24,3 +25,5 @@ searchUsersForm.addEventListener('submit', async (event) => {
 
   addCardToList(users);
 });
+
+
