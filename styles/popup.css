@@ -11,24 +11,38 @@
   z-index: 100;
 }
 
-.popup__content {
-  width: 80%;
-  height: 80vh;
-  background-color: white;
-  overflow: auto;
-  padding: 20px;
-}
-
 .popup.hidden {
   display: none;
 }
 
+.popup *.hidden {
+  display: none;
+}
+
+.popup__content {
+  width: 80%;
+  height: 80vh;
+  max-width: 800px;
+  background-color: var(--bg-color);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: auto;
+  padding: 20px;
+}
+
+.popup__loader {
+  color: white;
+  font-size: 20px;
+  animation: blinking 1s infinite;
+}
+
 .content__user-info {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   align-items: flex-start;
   gap: 10px;
-  padding: 20px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .user-info__image {
@@ -45,15 +59,18 @@
 }
 
 .content__user-repos {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
-  margin-bottom: auto;
 }
 
 .content__user-repos input {
-  width: 100%;
+  width: 90%;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -63,5 +80,14 @@
 }
 
 .content__user-repos .repos-list {
-  list-style: none;
+  width: 100%;
+}
+
+.content__user-repos .repos-list a {
+  color: #333;
+}
+
+.content__user-repos .repos-list a:hover,
+.content__user-repos .repos-list a:focus {
+  color: #000;
 }

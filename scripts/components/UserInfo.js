@@ -1,5 +1,3 @@
-import fetchData from '../api/fetchData.js';
-import RepoCard from './RepoCard.js';
 /**
  * 1. Repo component (name, html_url)
  * 2. fetch repos data
@@ -14,6 +12,9 @@ import RepoCard from './RepoCard.js';
  * 5. обрабатывать репозитории с фильтрацией
  * магия закончилась)
  */
+
+// import fetchData from '../api/fetchData.js';
+// import RepoCard from './RepoCard.js';
 
 const userInfo = document.querySelector('.content__user-info');
 

@@ -10,10 +10,22 @@ import UserInfo from './components/UserInfo.js';
 import ReposList from './components/ReposList.js';
 
 const popup = document.querySelector('.popup');
+const popupContent = document.querySelector('.popup__content');
+const popupLoader = document.querySelector('.popup__loader');
 
 const hidePopup = () => {
   popup.classList.add('hidden');
   document.body.classList.remove('popup-shown');
+};
+
+const showPopupLoader = () => {
+  popupLoader.classList.remove('hidden');
+  popupContent.classList.add('hidden');
+};
+
+const hidePopupLoader = () => {
+  popupLoader.classList.add('hidden');
+  popupContent.classList.remove('hidden');
 };
 
 const showPopup = () => {
@@ -32,6 +44,7 @@ const {searchUsers, fetchData} = api;
 
 const searchUsersForm = document.forms['search-users'];
 const usersList = document.getElementById('usersList');
+const popupInput = document.querySelector('#repoName');
 
 searchUsersForm.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -54,6 +67,9 @@ usersList.addEventListener('click', async (e) => {
     return;
   }
 
+  showPopupLoader();
+  showPopup();
+
   const userLink = e.target.href || e.target.parentNode.href;
   const {repos_url, ...userData} = await fetchData(userLink);
 
@@ -62,7 +78,8 @@ usersList.addEventListener('click', async (e) => {
   const reposData = await fetchData(repos_url);
   ReposList(reposData);
 
-  const popupInput = document.querySelector('#repoName');
+  hidePopupLoader();
+
   popupInput.addEventListener('input', (e) => {
     const value = e.target.value;
     console.log(value);
@@ -72,6 +89,4 @@ usersList.addEventListener('click', async (e) => {
 
     ReposList(filteredReposData);
   });
-
-  showPopup();
 });

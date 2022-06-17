@@ -1,5 +1,8 @@
 body {
   background: url(https://www.toptal.com/designers/subtlepatterns/uploads/swirl_pattern.png) repeat;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #333;
 }
 
 body.popup-shown {
@@ -8,10 +11,10 @@ body.popup-shown {
 
 .content {
   display: flex;
-  flex-flow: row nowrap;
   justify-content: center;
-  gap: 10px;
   width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
 }
 
 .content__search {
@@ -19,7 +22,7 @@ body.popup-shown {
   flex-flow: row wrap;
   gap: 10px;
   width: 80%;
-  background-color: rgba(255, 255, 255, 0.781);
+  background-color: transparent;
 }
 
 .content__user-info {
@@ -39,12 +42,13 @@ body.popup-shown {
 .form__input {
   width: 100%;
   box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(----border-radius);
   font-size: 16px;
   background-color: white;
   background: url('https://img.icons8.com/material-outlined/48/search-database.png') 10% 10%
-    no-repeat;
+      no-repeat,
+    white;
   background-position: 5px 5px;
   background-size: 30px;
   padding: 12px 20px 12px 40px;
@@ -53,10 +57,12 @@ body.popup-shown {
 .form__button {
   width: calc(20% - 10px);
   min-width: 60px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 19px;
-  background: rgba(0, 0, 0, 0);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  color: white;
+  background-color: rgb(50, 159, 50);
+  cursor: pointer;
 }
 
 .search__list {
