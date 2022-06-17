@@ -1,17 +1,17 @@
-import renderUserCard from './renderUserCard.js';
+import UserCard from './UserCard.js';
 
 const usersList = document.getElementById('usersList');
 
-const addCardToList = (users) => {
+const UsersList = (users) => {
   if (!users.length) {
     usersList.innerHTML = 'No user for searched query';
     return;
   }
 
   usersList.innerHTML = users.reduce((acc, user) => {
-    acc += renderUserCard(user);
+    acc += UserCard(user);
     return acc;
   }, '');
 };
 
-export default addCardToList;
+export default UsersList;
